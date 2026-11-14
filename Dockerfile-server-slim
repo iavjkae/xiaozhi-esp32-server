@@ -1,0 +1,4 @@
+# 生产镜像（精简版）：只包含应用代码
+FROM xiaozhi-esp32-server:core-lite
+COPY main/xiaozhi-server .
+CMD ["python", "app.py"]

@@ -123,6 +123,10 @@ def is_private_ip(ip_addr):
 
 def get_ip_info(ip_addr, logger):
     try:
+        # 隐私开关: 默认不向 whois.pconline.com.cn 发送客户端 IP 做归属地查询。
+        # 需要该功能时设置环境变量 XIAOZHI_IP_LOOKUP=1。
+        if os.environ.get("XIAOZHI_IP_LOOKUP", "0") != "1":
+            return {}
         # 导入全局缓存管理器
         from core.utils.cache.manager import cache_manager, CacheType
 
