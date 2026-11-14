@@ -24,5 +24,4 @@ WORKDIR /opt/xiaozhi-esp32-server
 COPY main/xiaozhi-server/requirements-core.txt .
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
     pip install --no-cache-dir -r requirements-core.txt \
-      --default-timeout=120 --retries 5 \
-      --extra-index-url https://pypi.org/simple
+      --default-timeout=60 --retries 3
